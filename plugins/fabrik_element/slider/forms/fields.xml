@@ -59,6 +59,21 @@
 					<option value="0">JNO</option>
 					<option value="1">JYES</option>
 			</field>
+      <field name="slider-min"
+				type="text"
+				default="0"
+				description="PLG_ELEMENT_SLIDER_MIN_DES"
+				label="PLG_ELEMENT_SLIDER_MIN_LBL"/>
+      <field name="slider-max"
+				type="text"
+				default="10"
+				description="PLG_ELEMENT_SLIDER_MAX_DES"
+				label="PLG_ELEMENT_SLIDER_MAX_LBL"/>
+       <field name="slider-step"
+				type="text"
+				default="1"
+				description="PLG_ELEMENT_SLIDER_MIN_DES"
+				label="PLG_ELEMENT_SLIDER_STEP_LBL"/>
 
 		</fieldset>
 
