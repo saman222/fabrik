@@ -38,6 +38,7 @@ define(['jquery', 'fab/element'], function (jQuery, FbElement) {
                     this.element.getElement('.knob'),
                     {
                         onChange  : function (pos) {
+                            console.log("********");
                             this.output.value = pos;
                             this.options.value = pos;
                             this.output2.set('text', pos);
