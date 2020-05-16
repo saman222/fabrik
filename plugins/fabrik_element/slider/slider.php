@@ -4,7 +4,7 @@
  *
  * @package     Joomla.Plugin
  * @subpackage  Fabrik.element.slider
- * @copyright   Copyright (C) 2005-2015 fabrikar.com - All rights reserved.
+ * @copyright   Copyright (C) 2005-2016  Media A-Team, Inc. - All rights reserved.
  * @license     GNU/GPL http://www.gnu.org/copyleft/gpl.html
  */
 
@@ -57,7 +57,12 @@ class PlgFabrik_ElementSlider extends PlgFabrik_Element
 
 	public function render($data, $repeatCounter = 0)
 	{
+    $document = JFactory::getDocument();
+		$document->addScript('./plugins/fabrik_element/slider/lib/rangeslider.js');
+    /* $document->addScript('jquery.min.js'); */
 		FabrikHelperHTML::stylesheet(COM_FABRIK_LIVESITE . 'media/com_fabrik/css/slider.css');
+		FabrikHelperHTML::stylesheet('./plugins/fabrik_element/slider/lib/rangeslider.css');
+	
 		$params = $this->getParams();
 		$width = (int) $params->get('slider_width', 250);
 		$val = $this->getValue($data, $repeatCounter);
@@ -81,7 +86,10 @@ class PlgFabrik_ElementSlider extends PlgFabrik_Element
 		$layoutData->outSrc = FabrikHelperHTML::image('clear_rating_out.png', 'form', $this->tmpl, array(), true);
 		$layoutData->labels = $labels;
 		$layoutData->spanWidth = floor(($width - (2 * count($labels))) / count($labels));
-
+    $layoutData->min = $params->get('slider-min');
+    $layoutData->max = $params->get('slider-max');
+    $layoutData->step = $params->get('slider-step');
+    
 		$layoutData->align = array();
 
 		for ($i = 0; $i < count($labels); $i++)
